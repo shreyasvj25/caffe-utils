@@ -1,2 +1,3 @@
 # caffe-utils
-Useful Caffe scripts, visualization, Computer vision, Deep Learning
+Computer vision, Deep Learning
+Keywords: caffe scripts, visualization of convolutional layers,
