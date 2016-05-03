@@ -1,26 +1,24 @@
 # to find n nearest neighbours for m images
 # here n=10 and m=3
 # Author: Shreyas Joshi (shreyasvj25@gmail.com)
+
 import numpy as np
 import cv2
+
+import caffe
 
 # Make sure that caffe is on the python path:
 caffe_root = '../caffe/'  # this file is expected to be in {caffe_root}/examples
 import sys
 sys.path.insert(0, caffe_root + 'python')
 
-import caffe
-
-# specify a test list file containing image names and class
+# specify a test list file, result text and images path
 test_listfile = '/scratch/16824/data/testlist_class.txt'
 result_file = 'results.txt'
-
 fullpath = '/scratch/16824/data/crop_imgs/'
 
 # specify m image ids
 imgID = [0, 1, 2]
-
-
 
 caffe.set_device(0)
 caffe.set_mode_gpu()

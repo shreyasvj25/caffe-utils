@@ -1,15 +1,18 @@
 # to find n nearest neighbours for m images
 # here n=10 and m=3
 # Author: Shreyas Joshi (shreyasvj25@gmail.com)
+
 import numpy as np
 import cv2
+
+import caffe
 
 # Make sure that caffe is on the python path:
 caffe_root = '../caffe/'  # this file is expected to be in {caffe_root}/examples
 import sys
 sys.path.insert(0, caffe_root + 'python')
 
-import caffe
+
 
 # specify a test list file containing image names and class
 test_listfile = '/scratch/16824/data/testlist_class.txt'
@@ -72,7 +75,7 @@ knn.train(features,responses)
 n=10
 ret, results, neighbours ,dist = knn.find_nearest(imgfeatures, n)
 
-print neighbours
+#print neighbours
 neighbours = neighbours.astype(int)
 for i in range(n):
 	fname = test_list[neighbours[0,i]].split(' ')[0]
@@ -87,10 +90,10 @@ for i in range(n):
 	img2 = cv2.imread(fullpath+fname)
 	cv2.imwrite('fc7/2/'+str(i)+'.jpg',img2)
 
-print imgfeatures.shape
-print features.shape
+#print imgfeatures.shape
+#print features.shape
 #print len(dataFeat1d)
-print data_counts
+#print data_counts
 
 
 
